@@ -79,8 +79,9 @@ const Reviews = ({ stars }) => {
       transition={{ duration: 0.5 }}
       className="mt-8 p-8 bg-gray-800 rounded-xl shadow-2xl"
     >
-
-
+      <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6">
+        Reviews:
+      </h2>
       {/* Review Submission Form */}
       <form onSubmit={formik.handleSubmit} className="mb-8">
         <div className="mb-4">
@@ -100,7 +101,7 @@ const Reviews = ({ stars }) => {
         </div>
 
         {/* Star Rating Input */}
-        <div className="mb-4">
+        <div className="mb-4 flex items-center gap-2">
           <label htmlFor="stars" className="block text-sm font-medium text-gray-300 mb-2">
             Rating
           </label>
@@ -134,23 +135,18 @@ const Reviews = ({ stars }) => {
       ) : (
         <motion.div className="space-y-6">
           <AnimatePresence mode="popLayout">
-            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-6">
-              Reviews:
-            </h2>
             {stars !== 0 ? (
-              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-500 mb-6">
+              <h2 className="flex items-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-500 mb-6">
                 <ReactStars
                   count={5}
                   value={stars ? stars.toFixed(2) : 0}
                   size={20}
                   activeColor="#ffd700"
                   edit={false}
-                /> {stars ? stars.toFixed(2) : 'No ratings yet'}
+                /> {stars ? stars.toFixed(2) + ' average rating' : 'No ratings yet'}
               </h2>
             ) : (
-              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-500 mb-6">
-                No ratings yet
-              </h2>
+              <h2 className="text-xl font-bold text-gray-400">No ratings yet</h2>
             )}
             {reviews.length !== 0 ? (
               reviews.map((review) => (
