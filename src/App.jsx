@@ -349,8 +349,7 @@ const App = () => {
         event.key === 'ArrowLeft' ||
         event.key === 'ArrowRight' ||
         event.key === 'ArrowUp' ||
-        event.key === 'ArrowDown' ||
-        event.key === ' '
+        event.key === 'ArrowDown'
       ) {
         event.preventDefault();
       }
