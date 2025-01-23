@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -30,7 +30,8 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  min-width: 320px;
+  width: 100sw;
+  background-color: #242424;
   min-height: 100vh;
 }
 
