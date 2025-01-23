@@ -64,7 +64,7 @@ const App = () => {
             <h1 style="color: #716add; font-size: 2em;margin:16px 0">Instructions</h1>
             <p>To play the game, you need to click on &#9658; Start Game.</p>
             <p>You can also click on the ← and → buttons to move the block left or right.</p>
-            <p>To rotate the block(Tetromino), you need to click on Spacebar button.</p>
+            <p>To rotate the block(Tetromino), you need to click on Control button (Ctrl).</p>
             <p>If you want to reset the game, you can click on the ↻ Reset Game button.</p>
             <p style="margin:16px 0">Good luck!</p>
           `,
@@ -267,7 +267,7 @@ const App = () => {
         if (!checkCollision(board, tetromino.shape, { x: position.x, y: newY })) {
           setPosition((prev) => ({ ...prev, y: newY }));
         }
-      } else if (e.key === ' ') {
+      } else if (e.key === 'Control') {
         const rotatedShape = rotateTetromino(tetromino.shape);
         if (!checkCollision(board, rotatedShape, position)) {
           setTetromino((prev) => ({ ...prev, shape: rotatedShape }));
