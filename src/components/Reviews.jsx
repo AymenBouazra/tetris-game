@@ -149,9 +149,9 @@ const Reviews = ({ stars }) => {
               <h2 className="text-xl font-bold text-gray-400">No ratings yet</h2>
             )}
             {reviews.length !== 0 ? (
-              reviews.map((review) => (
+              reviews.map((review, index) => (
                 <motion.div
-                  key={review._id}
+                  key={review._id + index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}

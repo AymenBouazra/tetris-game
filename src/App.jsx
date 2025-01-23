@@ -384,8 +384,16 @@ const App = () => {
             <img src='tetris.png' className='w-10' />{text}
           </h1>
           <p className="text-lg">
-            <span className="font-bold"><kbd>←</kbd></span> Move Left | <span className="font-bold"><kbd>→</kbd></span> Move Right |{' '}
-            <span className="font-bold"><kbd>↓</kbd></span> Move Down | <span className="font-bold"><kbd>Ctrl</kbd></span> Rotate
+            <span className="font-bold">
+              <kbd className='p-1 px-3 bg-gray-300 text-black border border-gray-300 rounded-md'>←</kbd>
+            </span> Move Left | <span className="font-bold">
+              <kbd className='py-1 px-3 bg-gray-300 text-black border border-gray-300 rounded-md'>→</kbd>
+            </span> Move Right |{' '}
+            <span className="font-bold">
+              <kbd className='p-1 px-3 bg-gray-300 text-black border border-gray-300 rounded-md'>↓</kbd>
+            </span> Move Down | <span className="font-bold">
+              <kbd className='p-1 bg-gray-300 text-black border border-gray-300 rounded-md'>Ctrl</kbd>
+            </span> Rotate
           </p>
         </div>
 
