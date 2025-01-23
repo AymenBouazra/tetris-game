@@ -141,7 +141,7 @@ const Reviews = ({ stars }) => {
               <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-500 mb-6">
                 <ReactStars
                   count={5}
-                  value={stars.toFixed(2)}
+                  value={stars?.toFixed(2) ?? 0}
                   size={20}
                   activeColor="#ffd700"
                   edit={false}
