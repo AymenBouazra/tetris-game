@@ -72,12 +72,6 @@ const App = () => {
           color: "#ccc",
           background: "rgba(0,0,0,0.9)",
           confirmButtonText: "Let's go!",
-          backdrop: `
-            rgba(0,0,123,0.4)
-            url(https://media.tenor.com/-AyTtMgs2mMAAAAi/nyan-cat-nyan.gif)
-            left top
-            no-repeat
-          `,
           showClass: {
             popup: `
               animate__animated
