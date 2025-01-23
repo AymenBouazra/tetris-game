@@ -527,7 +527,7 @@ const App = () => {
           </motion.div>
         )}
         <div className="w-full max-w-4xl ">
-          <Reviews />
+          <Reviews stars={stats.stars} />
         </div>
       </div>
       <Toaster />
