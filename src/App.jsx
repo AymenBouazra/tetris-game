@@ -92,6 +92,10 @@ const App = () => {
               animate__faster
             `
           }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
         });
       } catch (error) {
         console.error('Error submitting user data:', error);
@@ -364,16 +368,22 @@ const App = () => {
     <div className='w-full min-h-screen'>
       <div className="flex flex-col justify-center items-center min-h-screen py-6 bg-gray-900">
         {/* Stats */}
-        <div className="flex justify-center items-center mb-6">
-          <div className="flex flex-col items-center">
-            <div className='flex items-center justify-end gap-6 px-10'>
-              <h2 className="text-2xl font-bold">Tetris stats</h2>
-              <span className="font-bold text-gray-600">Users: {stats.users}</span>
-              <span className="font-bold text-gray-600">Reviews: {stats.reviews}</span>
-              <span className="font-bold text-gray-600">Games Played: {stats.gamesPlayed}</span>
+        <AnimatePresence mode='popLayout'>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 1 }} className="flex justify-center items-center mb-6">
+            <div className="flex flex-col items-center">
+              <div className='flex items-center justify-end gap-6 px-10'>
+                <h2 className="text-2xl font-bold">Tetris stats</h2>
+                <span className="font-bold text-gray-600">Users: {stats.users}</span>
+                <span className="font-bold text-gray-600">Reviews: {stats.reviews}</span>
+                <span className="font-bold text-gray-600">Games Played: {stats.gamesPlayed}</span>
+              </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
         {/* Key Guide */}
         <div className="text-white text-center mb-8">
           <h1 className="flex items-center justify-center text-4xl font-bold mb-4 text-orange-500">

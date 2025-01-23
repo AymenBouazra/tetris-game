@@ -33,21 +33,29 @@ const HighestScoredUsers = ({ score }) => {
    ) : (
     <ul className="space-y-3">
      <AnimatePresence>
-      {topUsers.map((user, index) => (
-       <motion.li
-        key={user._id}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.3, delay: index * 0.1 }}
-        className="bg-cyan-900 bg-opacity-50 p-4 rounded-lg shadow-md hover:bg-cyan-900 transition-colors duration-200"
-       >
-        <span className="font-bold text-lg">
-         {index + 1}. {user.fullname}
-        </span>{' '}
-        - <span className="text-cyan-300">{user.highestScore}</span> points
-       </motion.li>
-      ))}
+      {
+       topUsers.length === 0 ? (
+        <li className="text-center text-xl text-gray-300">No users found</li>
+       ) : (
+
+        topUsers.map((user, index) => (
+         <motion.li
+          key={user._id}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.3, delay: index * 0.1 }}
+          className="bg-cyan-900 bg-opacity-50 p-4 rounded-lg shadow-md hover:bg-cyan-900 transition-colors duration-200"
+         >
+          <span className="font-bold text-lg">
+           {index + 1}. {user.fullname}
+          </span>{' '}
+          - <span className="text-cyan-300">{user.highestScore}</span> points
+         </motion.li>
+        ))
+
+       )
+      }
      </AnimatePresence>
     </ul>
    )}

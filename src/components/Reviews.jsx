@@ -111,7 +111,7 @@ const Reviews = () => {
    ) : (
     <motion.div className="space-y-6">
      <AnimatePresence mode='popLayout'>
-      {reviews.map((review) => (
+      {reviews.length !== 0 ? (reviews.map((review) => (
        <motion.div
         key={review._id}
         initial={{ opacity: 0, y: 20 }}
@@ -162,7 +162,9 @@ const Reviews = () => {
          </span>
         </div>
        </motion.div>
-      ))}
+      ))) : (
+       <div className="text-center text-xl text-gray-300">No reviews yet, think about adding one!</div>
+      )}
      </AnimatePresence>
     </motion.div>
    )}
