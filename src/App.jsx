@@ -32,7 +32,6 @@ const App = () => {
   const [tetromino, setTetromino] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [score, setScore] = useState(0);
-  const [globalHighestScore, setGlobalHighestScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [, setSpeed] = useState(1000);
@@ -114,12 +113,12 @@ const App = () => {
     return rotated;
   };
   const calculateSpeed = (score) => {
-    if (score >= 30000) return 350;
-    if (score >= 20000) return 500;
-    if (score >= 14000) return 600;
-    if (score >= 9000) return 700;
-    if (score >= 5000) return 800;
-    if (score >= 2000) return 900;
+    if (score >= 13000) return 350;
+    if (score >= 9500) return 500;
+    if (score >= 7000) return 600;
+    if (score >= 4500) return 700;
+    if (score >= 2500) return 800;
+    if (score >= 1000) return 900;
     return 1000;
   };
   const placeTetromino = useCallback(async () => {
@@ -135,8 +134,8 @@ const App = () => {
         localStorage.setItem('user', JSON.stringify(response.data));
         toast.success('New High Score!');
         setHighScore(score);
-
-        if (globalHighestScore < score) {
+        const responseHighestScore = await axios.get('/user/globalHighestScore');
+        if (responseHighestScore.data.highestScore < score) {
           Swal.fire({
             title: "New Global High Score!",
             width: 600,
@@ -168,7 +167,7 @@ const App = () => {
         }
       }
     }
-  }, [board, globalHighestScore, highScore, score]);
+  }, [board, highScore, score]);
 
   const checkCollision = (board, tetromino, position) => {
     for (let y = 0; y < tetromino.length; y++) {
@@ -329,18 +328,6 @@ const App = () => {
       setIsModalOpen(true);
     }
   }, []);
-  useEffect(() => {
-    const fetchGlobalHighestScore = async () => {
-      try {
-        const response = await axios.get('/user/globalHighestScore');
-        setGlobalHighestScore(response.data.highestScore);
-      } catch (error) {
-        console.error('Error fetching global highest score:', error);
-      }
-    }
-    fetchGlobalHighestScore();
-  }, [])
-
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (
